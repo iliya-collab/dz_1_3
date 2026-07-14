@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -16,9 +17,14 @@ int main() {
     std::cout << "Enter the third number: ";
     std::cin >> c;
 
-    std::cout << "Result: " << max(a, max(b, c)) << ' '
-                            << min(a, max(b, c)) << ' ' 
-                            << min(a, min(b, c)) << std::endl;
+    int mn = min(a, min(b, c));
+    int mx = max(a, max(b, c));
+    int sm = a + b + c;
+    int mid = sm - mn - mx;
+
+    std::cout << "Result: " << mx << ' '
+                            << mid << ' ' 
+                            << mn << std::endl;
 
     return EXIT_SUCCESS;
 }
